@@ -255,16 +255,21 @@ def leer_lineas(fichero: str):
 
 ---
 
-## Proyecto del módulo: decoradores para la CLI
+## Aportación al proyecto hilo
+
+En este módulo añadimos al `loganalyzer` un **decorador de validación de
+fichero** y refactorizamos la lectura para que devuelva un generador lazy
+(útil cuando los logs son grandes).
 
 ```python
-# modulo-03-funciones/decoradores.py
+# extracto: decorador + lectura lazy
 import functools
-import time
+from collections.abc import Iterator
 from pathlib import Path
 
+
 def validar_fichero(func):
-    """Decorador que valida que el primer argumento sea un fichero existente."""
+    """Valida que el primer argumento sea un fichero existente."""
     @functools.wraps(func)
     def wrapper(ruta: str, *args, **kwargs):
         if not Path(ruta).exists():
@@ -274,16 +279,24 @@ def validar_fichero(func):
         return func(ruta, *args, **kwargs)
     return wrapper
 
+
 @validar_fichero
-def procesar_log(ruta: str) -> list[str]:
+def leer_log(ruta: str) -> Iterator[str]:
     with open(ruta) as f:
-        return [linea.strip() for linea in f if linea.strip()]
+        for linea in f:
+            if linea.strip():
+                yield linea.strip()
 ```
 
 ---
 
 ## ✅ Ejercicios
 
-1. Crea un decorador `cache_simple` que memorice el resultado de una función por sus argumentos (sin usar `functools.lru_cache`).
-2. Escribe un generador `fibonacci()` que produzca números de Fibonacci infinitamente.
-3. Implementa `pipeline(*funciones)` que reciba una lista de funciones y devuelva una función que las aplique en cadena: `pipeline(doblar, str, upper)(3)` → `"6"`.
+| # | Fichero | Enunciado breve |
+|---|---------|-----------------|
+| 01 | [`ejercicios/01_cache_simple.py`](./ejercicios/01_cache_simple.py) | Decorador que cachea por argumentos posicionales. |
+| 02 | [`ejercicios/02_fibonacci.py`](./ejercicios/02_fibonacci.py) | Generador infinito de Fibonacci con `yield`. |
+| 03 | [`ejercicios/03_pipeline.py`](./ejercicios/03_pipeline.py) | `pipeline(*funciones)` que las aplica en cadena. |
+
+Cada fichero contiene el enunciado completo en el docstring. Resuelve sin abrir
+[`soluciones/`](./soluciones/) y contrasta al terminar.
