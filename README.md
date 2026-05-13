@@ -43,6 +43,22 @@ Actívalo según tu sistema operativo:
 source .venv/bin/activate
 ```
 
+### Flujo visual
+
+```mermaid
+flowchart LR
+    A[Clonar repositorio] --> B[Instalar uv]
+    B --> C[Crear entorno virtual<br/>uv venv]
+    C --> D{Activar venv}
+    D --> E[Windows PowerShell<br/>.venv\Scripts\Activate.ps1]
+    D --> F[Windows cmd<br/>.venv\Scripts\activate.bat]
+    D --> G[Linux/macOS<br/>source .venv/bin/activate]
+    G --> H[Instalar dependencias dev<br/>uv sync --group dev]
+    F --> H
+    E --> H
+    H --> I[Ejecutar ruff / pytest / mypy]
+```
+
 ## Mapa del curso
 
 | Módulo | Tema | Equivalente C# |
