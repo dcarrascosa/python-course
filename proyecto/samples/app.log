@@ -1,0 +1,10 @@
+2026-05-13 12:00:00 INFO [app.main] arrancando aplicación
+2026-05-13 12:00:01 DEBUG [app.config] cargando .env
+2026-05-13 12:00:02 ERROR [db.pool] conexión a postgres rechazada
+2026-05-13 12:00:03 WARNING [http.client] respuesta lenta (timeout=5s)
+2026-05-13 12:00:04 INFO [app.main] servidor escuchando en 0.0.0.0:8000
+2026-05-13 12:00:05 ERROR [db.pool] conexión a postgres rechazada
+2026-05-13 12:00:06 INFO [http.server] GET /health 200
+2026-05-13 12:00:07 WARNING [auth] token expirado para user=42
+2026-05-13 12:00:08 ERROR [http.server] GET /usuarios/42 500
+2026-05-13 12:00:09 INFO [http.server] GET /health 200
