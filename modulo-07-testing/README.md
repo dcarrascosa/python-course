@@ -208,22 +208,31 @@ pytest --cov=src --cov-fail-under=80
 
 ---
 
-## Ejercicios
+## Aportación al proyecto hilo
 
-### Ejercicio 1 — Fixtures y parametrize
-
-Crea una fixture `product_catalog` con 5 productos variados. Escribe tests parametrizados que verifiquen el comportamiento de `discounted_price` con diferentes descuentos.
-
-### Ejercicio 2 — Mock de servicio externo
-
-Crea un servicio `WeatherService` que llame a una API externa. Escribe tests que mocken la llamada HTTP con `unittest.mock.patch` y verifiquen el comportamiento cuando la API devuelve datos correctos y cuando falla.
-
-### Ejercicio 3 — Test de integración con base de datos
-
-Usa SQLite en memoria como base de datos de test. Crea fixtures que inicialicen el esquema y creen datos de prueba. Escribe tests de integración que verifiquen las queries de tu repositorio.
+En este módulo blindamos el `loganalyzer` con una batería de tests con
+pytest: fixtures para logs sintéticos, parametrización de los parsers y
+mocks para los accesos a I/O. El objetivo es alcanzar cobertura razonable
+sobre el código del paquete.
 
 ---
 
-## Solución
+## ✅ Ejercicios
 
-Ver [`soluciones/modulo07.py`](./soluciones/modulo07.py)
+> Excepción a la convención del curso: aquí los ficheros se llaman
+> `test_<nombre>.py` (sin prefijo numérico) para que pytest los descubra
+> automáticamente.
+
+| # | Fichero | Enunciado breve |
+|---|---------|-----------------|
+| 01 | [`ejercicios/test_product.py`](./ejercicios/test_product.py) | Fixture + `parametrize` + `pytest.raises` sobre `Product`. |
+| 02 | [`ejercicios/test_weather_service.py`](./ejercicios/test_weather_service.py) | Mockear `httpx.get` con `unittest.mock.patch`. |
+
+Cada fichero incluye el código bajo test y el enunciado en el docstring.
+Ejecuta tus tests con:
+
+```bash
+pytest modulo-07-testing/ejercicios/
+```
+
+Cuando termines, contrasta con [`soluciones/`](./soluciones/).
