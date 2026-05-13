@@ -1,0 +1,30 @@
+# Ejercicio 01: pyproject.toml de la API TaskFlow.
+#
+# Completa este pyproject.toml para una API FastAPI llamada `taskflow-api`:
+#
+# 1. Bajo [project], define los metadatos del paquete y exige Python >= 3.12.
+# 2. En `dependencies`, añade fastapi (>=0.115), uvicorn[standard] (>=0.32),
+#    httpx (>=0.28) y pydantic (>=2.10).
+# 3. En el grupo `dev` (dependency-groups), añade pytest (>=8), ruff (>=0.8)
+#    y mypy (>=1.13).
+# 4. Configura [tool.ruff] con line-length=100 y target-version="py312",
+#    y selecciona las reglas E, F, I, UP en [tool.ruff.lint].
+# 5. Configura [tool.mypy] con strict=true.
+#
+# Las secciones están esbozadas abajo; rellénalas siguiendo las instrucciones.
+
+[project]
+# TODO: name, version, description, requires-python
+# TODO: dependencies = [...]
+
+[dependency-groups]
+# TODO: dev = [...]
+
+[tool.ruff]
+# TODO
+
+[tool.ruff.lint]
+# TODO
+
+[tool.mypy]
+# TODO
