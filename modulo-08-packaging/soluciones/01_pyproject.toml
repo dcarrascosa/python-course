@@ -1,0 +1,30 @@
+# Solución del ejercicio 01: pyproject.toml de la API TaskFlow.
+
+[project]
+name = "taskflow-api"
+version = "0.1.0"
+description = "API de gestión de tareas (proyecto de ejemplo del curso)"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "httpx>=0.28",
+    "pydantic>=2.10",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff>=0.8",
+    "mypy>=1.13",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.mypy]
+strict = true

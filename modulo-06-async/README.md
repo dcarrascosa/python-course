@@ -178,22 +178,22 @@ async def main():
 
 ---
 
-## Ejercicios
+## Aportación al proyecto hilo
 
-### Ejercicio 1 — Fetch concurrente
-
-Escribe una función `fetch_prices(symbols: list[str]) -> dict[str, float]` que consulte una API de precios para cada símbolo de forma concurrente con `asyncio.gather`. Usa `httpx.AsyncClient`.
-
-### Ejercicio 2 — Rate limiter async
-
-Implementa un semáforo async que limite a 5 peticiones simultáneas usando `asyncio.Semaphore`.
-
-### Ejercicio 3 — Producer/Consumer
-
-Implementa el patrón producer/consumer usando `asyncio.Queue`: un producer que encole URLs, y múltiples consumers (workers) que las procesen concurrentemente.
+En este módulo el `loganalyzer` aprende a procesar **múltiples ficheros en
+paralelo** con `asyncio` y a usar un semáforo para no abrir demasiados
+descriptores a la vez. Esto acelera drásticamente el análisis de directorios
+con cientos de logs.
 
 ---
 
-## Solución
+## ✅ Ejercicios
 
-Ver [`soluciones/modulo06.py`](./soluciones/modulo06.py)
+| # | Fichero | Enunciado breve |
+|---|---------|-----------------|
+| 01 | [`ejercicios/01_fetch_prices.py`](./ejercicios/01_fetch_prices.py) | Descargar precios de varios símbolos con `asyncio.gather`. |
+| 02 | [`ejercicios/02_fetch_with_limit.py`](./ejercicios/02_fetch_with_limit.py) | Limitar la concurrencia con `asyncio.Semaphore`. |
+| 03 | [`ejercicios/03_producer_consumer.py`](./ejercicios/03_producer_consumer.py) | Producer/consumer sobre `asyncio.Queue`. |
+
+Cada fichero contiene el enunciado completo en el docstring. Resuelve sin abrir
+[`soluciones/`](./soluciones/) y contrasta al terminar.

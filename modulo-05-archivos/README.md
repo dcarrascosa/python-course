@@ -220,26 +220,21 @@ with Timer() as t:
 
 ---
 
-## Ejercicios
+## Aportación al proyecto hilo
 
-### Ejercicio 1 — Procesador de CSV
-
-Crea una función `process_sales(filepath: Path) -> dict` que lea un CSV con columnas `product`, `quantity`, `price` y devuelva un dict con el total vendido por producto.
-
-### Ejercicio 2 — Config manager
-
-Crea una clase `Config` que:
-- Cargue un fichero JSON al instanciarse
-- Permita acceder a valores con `config["key"]`
-- Tenga un método `save()` que persista los cambios
-- Lance `KeyError` con mensaje descriptivo si la clave no existe
-
-### Ejercicio 3 — Context manager de log
-
-Crea un context manager `log_operation(name)` que imprima cuándo empieza y termina una operación, y capture cualquier excepción registrándola en un fichero `errors.log`.
+En este módulo el `loganalyzer` aprende a leer múltiples formatos de fichero
+(texto plano, CSV, JSON, `.gz`) usando `pathlib` y context managers. Además
+introducimos manejo robusto de errores con excepciones propias.
 
 ---
 
-## Solución
+## ✅ Ejercicios
 
-Ver [`soluciones/modulo05.py`](./soluciones/modulo05.py)
+| # | Fichero | Enunciado breve |
+|---|---------|-----------------|
+| 01 | [`ejercicios/01_process_sales.py`](./ejercicios/01_process_sales.py) | Procesar un CSV de ventas y agregar por producto. |
+| 02 | [`ejercicios/02_config.py`](./ejercicios/02_config.py) | Clase `Config` respaldada por JSON con `__getitem__`/`save`. |
+| 03 | [`ejercicios/03_log_operation.py`](./ejercicios/03_log_operation.py) | Context manager que loguea inicio, fin y errores. |
+
+Cada fichero contiene el enunciado completo en el docstring. Resuelve sin abrir
+[`soluciones/`](./soluciones/) y contrasta al terminar.

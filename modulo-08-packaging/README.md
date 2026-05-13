@@ -228,28 +228,22 @@ uv run ruff check src && uv run mypy src && uv run pytest
 
 ---
 
-## Ejercicios
+## Aportación al proyecto hilo
 
-### Ejercicio 1 — Proyecto con uv
-
-Crea un proyecto nuevo con `uv init`. Añade `fastapi`, `uvicorn` y `httpx` como dependencias. Añade `pytest` y `ruff` como dependencias de desarrollo. Configura `ruff` en `pyproject.toml`.
-
-### Ejercicio 2 — Dockerfile optimizado
-
-Crea un Dockerfile multi-stage para la API de TaskFlow. Verifica que la imagen final pese menos de 200 MB. Añade un healthcheck endpoint `/health` en FastAPI.
-
-### Ejercicio 3 — Pipeline completo
-
-Configura un workflow de GitHub Actions que: lint con ruff → type check con mypy → tests con pytest (min 80% cobertura) → build Docker → deploy a Railway solo en pushes a `main`.
+En este módulo empaquetamos el `loganalyzer` como un paquete Python
+instalable (`pip install -e .`), añadimos un punto de entrada como comando
+CLI y configuramos un workflow de GitHub Actions que ejecuta lint, type-check
+y tests con cobertura mínima.
 
 ---
 
-## Proyecto TaskFlow — versión final
+## ✅ Ejercicios
 
-Al completar el curso tienes:
-- API FastAPI con autenticación JWT
-- CRUD completo de tareas con SQLAlchemy
-- Tests con >80% de cobertura
-- Linting y type checking configurados
-- Docker image optimizada
-- Deploy automático a Railway con GitHub Actions
+| # | Fichero | Enunciado breve |
+|---|---------|-----------------|
+| 01 | [`ejercicios/01_pyproject.toml`](./ejercicios/01_pyproject.toml) | Rellenar un `pyproject.toml` con metadatos, deps y config de tooling. |
+| 02 | [`ejercicios/02_healthcheck.py`](./ejercicios/02_healthcheck.py) | Implementar endpoints `/` y `/health` en FastAPI. |
+| 03 | [`ejercicios/03_ci_workflow.yml`](./ejercicios/03_ci_workflow.yml) | Completar un workflow CI con ruff + mypy + pytest. |
+
+Cada fichero contiene el enunciado completo en sus comentarios o docstring.
+Resuelve sin abrir [`soluciones/`](./soluciones/) y contrasta al terminar.
