@@ -22,6 +22,3 @@ select = ["E", "F", "I", "UP", "B", "SIM"]
 python_version = "3.12"
 strict = false
 ignore_missing_imports = true
-
-[tool.pytest.ini_options]
-testpaths = []
