@@ -26,10 +26,14 @@ def test_get_temperature_success() -> None:
     mock_response.json.return_value = {"temp_c": 22.5}
     mock_response.raise_for_status.return_value = None
 
-    with patch("httpx.get", return_value=mock_response):
+    with patch("httpx.get", return_value=mock_response) as mock_get:
         temp = service.get_temperature("Madrid")
 
     assert temp == 22.5
+    mock_get.assert_called_once_with(
+        f"{service.base_url}/current",
+        params={"q": "Madrid", "key": "test"},
+    )
 
 
 def test_get_temperature_api_error() -> None:
@@ -40,6 +44,11 @@ def test_get_temperature_api_error() -> None:
         response=MagicMock(status_code=404),
     )
 
-    with patch("httpx.get", side_effect=error):
+    with patch("httpx.get", side_effect=error) as mock_get:
         with pytest.raises(httpx.HTTPStatusError):
             service.get_temperature("CiudadFalsa")
+
+    mock_get.assert_called_once_with(
+        f"{service.base_url}/current",
+        params={"q": "CiudadFalsa", "key": "test"},
+    )
