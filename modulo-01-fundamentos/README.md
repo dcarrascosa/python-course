@@ -244,20 +244,21 @@ resultado = nombre or "Desconocido"  # cuidado: False/0/"" también activan el o
 
 ---
 
-## Proyecto del módulo: CLI skeleton
+## Aportación al proyecto hilo
 
-Crea el fichero `cli.py` con esta estructura básica:
+En este módulo construimos el **esqueleto de la CLI** del `loganalyzer`:
+lectura básica de argumentos y validación de entrada.
 
 ```python
 import sys
 
 def main() -> None:
     args = sys.argv[1:]  # equivale a string[] args en Main()
-    
+
     if not args:
         print("Uso: python cli.py <fichero_log>")
         sys.exit(1)
-    
+
     fichero = args[0]
     print(f"Procesando: {fichero}")
 
@@ -271,6 +272,11 @@ if __name__ == "__main__":
 
 ## ✅ Ejercicios
 
-1. Crea una función `calcular_imc(peso_kg: float, altura_m: float) -> float` y clasifica el resultado con `if/elif/else`.
-2. Escribe un bucle que imprima los números del 1 al 20, pero para múltiplos de 3 imprima "Fizz", para múltiplos de 5 "Buzz" y para múltiplos de ambos "FizzBuzz".
-3. Crea una función `parsear_version(version: str) -> tuple[int, int, int]` que reciba `"1.2.3"` y devuelva `(1, 2, 3)`.
+| # | Fichero | Enunciado breve |
+|---|---------|-----------------|
+| 01 | [`ejercicios/01_imc.py`](./ejercicios/01_imc.py) | Calcular el IMC validando entradas. |
+| 02 | [`ejercicios/02_fizzbuzz.py`](./ejercicios/02_fizzbuzz.py) | Devolver la secuencia FizzBuzz hasta `n`. |
+| 03 | [`ejercicios/03_parsear_version.py`](./ejercicios/03_parsear_version.py) | Parsear `"MAJOR.MINOR.PATCH"` a tupla. |
+
+Cada fichero contiene el enunciado completo en el docstring. Resuelve sin abrir
+[`soluciones/`](./soluciones/) y contrasta al terminar.
