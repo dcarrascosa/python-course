@@ -39,8 +39,8 @@ async def main_producer_consumer() -> list:
     queue: asyncio.Queue = asyncio.Queue(maxsize=5)
     results: list = []
     workers = [asyncio.create_task(consumer(queue, i, results)) for i in range(NUM_WORKERS)]
-    await producer(queue, urls)
-    await asyncio.gather(*workers)
+    producer_task = asyncio.create_task(producer(queue, urls))
+    await asyncio.gather(producer_task, *workers)
     return results
 
 
