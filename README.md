@@ -2,7 +2,7 @@
 
 Curso práctico de Python orientado a desarrolladores con experiencia en C# y .NET. Cada módulo establece puentes explícitos entre los conceptos que ya conoces y su equivalente en Python.
 
-## Prerequisitos
+## Prerrequisitos
 
 - Experiencia en C# y .NET (cualquier versión)
 - Conocimientos básicos de POO
@@ -46,3 +46,36 @@ A lo largo del curso construirás una **CLI de análisis de logs** que lee fiche
 - 🐍 **Python** — bloque de código Python
 - ⚠️ **Trampa común** — diferencia que suele confundir a devs C#
 - ✅ **Ejercicio** — práctica propuesta
+
+## Cómo contribuir
+
+¡Las contribuciones son bienvenidas! Para mantener la calidad del material, **todo cambio debe llegar a `main` a través de una Pull Request** — los pushes directos están desactivados.
+
+### Pasos
+
+1. Haz fork del repositorio
+2. Crea una rama descriptiva desde `main`:
+   ```bash
+   git checkout -b fix/modulo-03-typo
+   # o
+   git checkout -b feat/modulo-05-nuevo-ejercicio
+   ```
+3. Realiza tus cambios y escribe un commit claro
+4. Abre una Pull Request hacia `main` con una descripción del cambio
+5. Espera la revisión antes del merge
+
+### Qué tipos de contribuciones se aceptan
+
+- 🐛 Correcciones de errores en el código de los ejemplos
+- 📝 Mejoras en las explicaciones o comparativas C#/Python
+- ➕ Nuevos ejercicios o soluciones alternativas
+- 🌐 Traducciones (si el curso se expande a otros idiomas)
+
+### Convención de ramas
+
+| Prefijo | Uso |
+|---------|-----|
+| `fix/` | Correcciones de errores o typos |
+| `feat/` | Nuevo contenido o ejercicios |
+| `docs/` | Cambios solo en documentación |
+| `refactor/` | Reorganización sin cambio de contenido |
