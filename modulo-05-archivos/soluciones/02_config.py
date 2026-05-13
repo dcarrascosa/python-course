@@ -13,7 +13,12 @@ class Config:
         if not self._path.exists():
             raise FileNotFoundError(f"Config no encontrada: {self._path}")
         with open(self._path, encoding="utf-8") as f:
-            self._data: dict[str, Any] = json.load(f)
+            data = json.load(f)
+        if not isinstance(data, dict):
+            raise ValueError(
+                f"Config raíz debe ser un objeto JSON, no {type(data).__name__}"
+            )
+        self._data: dict[str, Any] = data
 
     def __getitem__(self, key: str) -> Any:
         if key not in self._data:
