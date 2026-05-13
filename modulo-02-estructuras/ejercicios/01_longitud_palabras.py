@@ -1,7 +1,7 @@
 """Ejercicio 01: Longitud de palabras.
 
 Dada una lista de palabras, devuelve un diccionario que mapea cada palabra
-a su longitud. Resîélvelo con un *dict comprehension*, no con un bucle
+a su longitud. Resuélvelo con un *dict comprehension*, no con un bucle
 clásico.
 
 Si la lista contiene palabras duplicadas, la última gana (es el

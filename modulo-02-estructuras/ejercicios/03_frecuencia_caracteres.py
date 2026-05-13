@@ -3,7 +3,7 @@
 Dado un texto, devuelve un `Counter` con la frecuencia de cada carácter
 (espacios y signos incluidos).
 
-Resîélvelo en una sola línea aprovechando que `Counter` acepta cualquier
+Resuélvelo en una sola línea aprovechando que `Counter` acepta cualquier
 iterable.
 
 Ejemplos:
