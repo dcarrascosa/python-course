@@ -99,3 +99,12 @@ A lo largo del curso construirás una **CLI de análisis de logs** que lee fiche
 | `feat/` | Nuevo contenido o ejercicios |
 | `docs/` | Cambios solo en documentación |
 | `refactor/` | Reorganización sin cambio de contenido |
+
+## Licencia
+
+Este repositorio combina código y material docente, cada uno con su licencia:
+
+- **Código** (ejercicios, soluciones, proyecto hilo) — [MIT](./LICENSE).
+- **Contenido** (READMEs, explicaciones) — [CC BY 4.0](./LICENSE-CONTENT).
+
+Puedes reutilizar y adaptar el material citando la fuente.
