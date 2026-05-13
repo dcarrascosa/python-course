@@ -1,0 +1,34 @@
+# Ejercicio 03: Workflow de GitHub Actions para CI.
+#
+# Completa este workflow para que ejecute, en pushes a main y PRs:
+#
+# 1. Checkout del código.
+# 2. Instalar uv con `astral-sh/setup-uv@v4`.
+# 3. Instalar Python 3.12 con `uv python install`.
+# 4. Sincronizar dependencias con `uv sync --frozen`.
+# 5. Lint con `uv run ruff check src tests`.
+# 6. Type-check con `uv run mypy src`.
+# 7. Tests con `uv run pytest --cov=src --cov-fail-under=80`.
+#
+# Pista: cada uno de los pasos 5-7 debe fallar de forma independiente para
+# que veas exactamente qué se rompió.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # TODO: instalar uv
+      # TODO: instalar Python 3.12
+      # TODO: uv sync --frozen
+      # TODO: ruff check
+      # TODO: mypy
+      # TODO: pytest con cobertura
