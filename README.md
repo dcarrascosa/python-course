@@ -10,17 +10,37 @@ Curso práctico de Python orientado a desarrolladores con experiencia en C# y .N
 
 ## Instalación del entorno
 
+Instala `uv` (gestor de paquetes moderno, equivalente al `dotnet` CLI):
+
 ```bash
-# Instalar uv (gestor de paquetes moderno, equivalente a dotnet CLI)
+# Linux / macOS
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Crear proyecto nuevo
-uv init mi-proyecto
-cd mi-proyecto
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
 
-# Activar entorno virtual
+Crea el entorno virtual del curso:
+
+```bash
 uv venv
-.venv\Scripts\activate  # Windows
+```
+
+Actívalo según tu sistema operativo:
+
+```powershell
+# Windows (PowerShell)
+.venv\Scripts\Activate.ps1
+```
+
+```cmd
+:: Windows (cmd)
+.venv\Scripts\activate.bat
+```
+
+```bash
+# Linux / macOS
+source .venv/bin/activate
 ```
 
 ## Mapa del curso
