@@ -244,26 +244,22 @@ print_description(Product()) # funciona
 
 ---
 
-## Ejercicios
+## Aportación al proyecto hilo
 
-### Ejercicio 1 — Clase BankAccount
-
-Crea una clase `BankAccount` con:
-- Atributos: `owner`, `balance` (privado)
-- Métodos: `deposit(amount)`, `withdraw(amount)` (lanza `ValueError` si no hay saldo)
-- Propiedad `balance` solo lectura
-- `__repr__` informativo
-
-### Ejercicio 2 — Jerarquía de vehículos
-
-Crea `Vehicle` (base) con `make`, `model`, `year` y método abstracto `fuel_cost_per_km()`. Luego `ElectricCar` y `GasCar` que sobrescriban el método. Usa `abc.ABC` y `@abstractmethod`.
-
-### Ejercicio 3 — Dataclass con validación
-
-Crea una dataclass `Employee` con `name`, `salary` y `department`. Usa `__post_init__` para validar que el salario sea positivo. Implementa `__lt__` para poder ordenar empleados por salario.
+En este módulo modelamos las entidades del `loganalyzer` con clases reales:
+`LogEntry` (ya estaba como dataclass), `LogSource` (abstracta) con
+implementaciones `FileLogSource` y `StreamLogSource`. Aplicamos herencia,
+métodos abstractos y `@property` para encapsular detalles.
 
 ---
 
-## Solución
+## ✅ Ejercicios
 
-Ver [`soluciones/modulo04.py`](./soluciones/modulo04.py)
+| # | Fichero | Enunciado breve |
+|---|---------|-----------------|
+| 01 | [`ejercicios/01_bank_account.py`](./ejercicios/01_bank_account.py) | Clase `BankAccount` con `@property` y validación. |
+| 02 | [`ejercicios/02_vehicles.py`](./ejercicios/02_vehicles.py) | Jerarquía abstracta de vehículos con `abc.ABC`. |
+| 03 | [`ejercicios/03_employee.py`](./ejercicios/03_employee.py) | Dataclass con `__post_init__` y `__lt__`. |
+
+Cada fichero contiene el enunciado completo en el docstring. Resuelve sin abrir
+[`soluciones/`](./soluciones/) y contrasta al terminar.
