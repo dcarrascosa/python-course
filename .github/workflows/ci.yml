@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test-loganalyzer:
+    name: Tests del proyecto loganalyzer
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: proyecto
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+
+      - name: Instalar Python 3.12
+        run: uv python install 3.12
+
+      - name: Sincronizar dependencias
+        run: uv sync --group dev
+
+      - name: Lint con ruff
+        run: uv run ruff check src tests
+
+      - name: Tests con pytest
+        run: uv run pytest -v
+
+  lint-soluciones:
+    name: Lint de las soluciones del curso
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+
+      - name: Instalar Python 3.12
+        run: uv python install 3.12
+
+      - name: Sincronizar dependencias del curso (raíz)
+        run: uv sync --group dev
+
+      - name: Lint con ruff sobre soluciones/
+        run: uv run ruff check modulo-*/soluciones/
