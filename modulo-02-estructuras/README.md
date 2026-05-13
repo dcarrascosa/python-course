@@ -226,12 +226,17 @@ cola.popleft()
 
 ---
 
-## Proyecto del módulo: parser de logs
+## Aportación al proyecto hilo
+
+En este módulo añadimos al `loganalyzer` el **parser básico de líneas de
+log** y el primer análisis agregado: contar entradas por nivel y agrupar
+mensajes con `Counter` y `defaultdict`.
 
 ```python
-# modulo-02-estructuras/log_parser.py
+# extracto: parser + análisis
 from collections import Counter, defaultdict
 from dataclasses import dataclass
+
 
 @dataclass
 class LogEntry:
@@ -239,22 +244,23 @@ class LogEntry:
     nivel: str
     mensaje: str
 
+
 def parsear_linea(linea: str) -> LogEntry | None:
     partes = linea.strip().split(" ", 2)
     if len(partes) < 3:
         return None
     return LogEntry(timestamp=partes[0], nivel=partes[1], mensaje=partes[2])
 
+
 def analizar_logs(lineas: list[str]) -> dict:
     entradas = [e for linea in lineas if (e := parsear_linea(linea))]
-    niveles = Counter(e.nivel for e in entradas)
-    por_nivel: defaultdict[str, list] = defaultdict(list)
+    por_nivel: defaultdict[str, list[str]] = defaultdict(list)
     for e in entradas:
         por_nivel[e.nivel].append(e.mensaje)
     return {
         "total": len(entradas),
-        "por_nivel": dict(niveles),
-        "mensajes": dict(por_nivel)
+        "por_nivel": dict(Counter(e.nivel for e in entradas)),
+        "mensajes": dict(por_nivel),
     }
 ```
 
@@ -262,7 +268,12 @@ def analizar_logs(lineas: list[str]) -> dict:
 
 ## ✅ Ejercicios
 
-1. Dada una lista de palabras, usa un dict comprehension para crear `{palabra: len(palabra)}`.
-2. Filtra con list comprehension los números primos del 1 al 50.
-3. Usa `Counter` para contar la frecuencia de cada carácter en una cadena.
-4. Implementa `agrupar_por_longitud(palabras: list[str]) -> dict[int, list[str]]` usando `defaultdict`.
+| # | Fichero | Enunciado breve |
+|---|---------|-----------------|
+| 01 | [`ejercicios/01_longitud_palabras.py`](./ejercicios/01_longitud_palabras.py) | Mapear palabras a su longitud con dict comprehension. |
+| 02 | [`ejercicios/02_numeros_primos.py`](./ejercicios/02_numeros_primos.py) | Listar primos hasta `limite` con list comprehension. |
+| 03 | [`ejercicios/03_frecuencia_caracteres.py`](./ejercicios/03_frecuencia_caracteres.py) | Contar frecuencia de caracteres con `Counter`. |
+| 04 | [`ejercicios/04_agrupar_por_longitud.py`](./ejercicios/04_agrupar_por_longitud.py) | Agrupar palabras por longitud con `defaultdict`. |
+
+Cada fichero contiene el enunciado completo en el docstring. Resuelve sin abrir
+[`soluciones/`](./soluciones/) y contrasta al terminar.
